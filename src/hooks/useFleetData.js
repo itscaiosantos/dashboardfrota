@@ -1,6 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import { brl } from '../utils/formatters';
 
+const excludedFiliais = new Set(['IMPETUS UDI']);
+const normalizeFilial = value => String(value ?? '').trim();
+const shouldIncludeFilial = filial =>
+  !excludedFiliais.has(normalizeFilial(filial).toUpperCase());
+
 export function useFleetData() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +25,10 @@ export function useFleetData() {
         const res = await fetch('/dados_frota.json');
         if (!res.ok) throw new Error('Falha ao carregar dados da frota');
         const json = await res.json();
-        setData(json);
+        const filteredJson = Array.isArray(json)
+          ? json.filter(item => shouldIncludeFilial(item?.filial))
+          : [];
+        setData(filteredJson);
       } catch (err) {
         console.error(err);
         setError(err.message);

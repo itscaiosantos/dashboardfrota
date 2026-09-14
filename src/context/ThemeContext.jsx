@@ -4,7 +4,8 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('frota-theme') || 'dark';
+    const savedTheme = localStorage.getItem('frota-theme');
+    return savedTheme || 'light';
   });
 
   useEffect(() => {
