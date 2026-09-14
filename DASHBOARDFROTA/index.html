@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard de Despesas da Frota - IMPETUS 2026</title>
   <meta name="description" content="Dashboard interativo de despesas e manutencao da frota IMPETUS, periodo Janeiro a Junho de 2026." />
+  <link rel="icon" type="image/png" href="logo-impetus.png" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -73,7 +74,8 @@
     header { background: linear-gradient(135deg, #0d1525 0%, #111827 50%, #0a1628 100%); border-bottom: 1px solid var(--border-bright); padding: 0 32px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1600px; margin: 0 auto; height: 68px; gap: 16px; }
     .header-brand { display: flex; align-items: center; gap: 12px; }
-    .header-logo { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: #fff; box-shadow: 0 0 16px rgba(59,130,246,0.4); }
+    .header-logo { height: 42px; min-width: 42px; padding: 4px 6px; border-radius: 10px; background: #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.2); flex-shrink: 0; }
+    .header-logo-img { height: 34px; width: auto; max-width: 58px; object-fit: contain; display: block; }
     .header-title { font-size: 16px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px; }
     .header-sub { font-size: 11px; color: var(--text-muted); font-weight: 400; }
     .header-badge { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2)); border: 1px solid rgba(59,130,246,0.3); border-radius: 20px; padding: 4px 14px; font-size: 11px; font-weight: 600; color: var(--accent-cyan); letter-spacing: 0.5px; }
@@ -228,7 +230,8 @@
     @media (max-width: 380px) {
       .kpi-grid { grid-template-columns: 1fr; }
       .kpi-value { font-size: 20px; }
-      .header-logo { width: 32px; height: 32px; font-size: 14px; }
+      .header-logo { height: 36px; min-width: 36px; padding: 3px 5px; }
+      .header-logo-img { height: 28px; }
     }
   </style>
 </head>
@@ -243,7 +246,9 @@
 <header>
   <div class="header-inner">
     <div class="header-brand">
-      <div class="header-logo">&#128663;</div>
+      <div class="header-logo">
+        <img src="logo-impetus.png" alt="IMPETUS" class="header-logo-img" />
+      </div>
       <div>
         <div class="header-title">IMPETUS Frota</div>
         <div class="header-sub">Dashboard de Despesas &middot; Jan&ndash;Jun 2026</div>
